@@ -1,0 +1,6 @@
+$mysql_host = "sql3.freemysqlhosting.net";
+$mysql_database = "sql363431";
+$mysql_user = "sql363431";
+$mysql_password = "jF8%mF6%";
+
+php filename (example) = http://ratemyclass.site50.net/create_class.php

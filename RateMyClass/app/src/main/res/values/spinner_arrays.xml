@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_values">
+        <item>No comment</item>
+        <item>Lecturer\'s voice was monotone</item>
+        <item>Practical value not demonstrated</item>
+    </string-array>
+</resources>
