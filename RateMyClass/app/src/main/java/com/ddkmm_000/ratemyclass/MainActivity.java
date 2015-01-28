@@ -1,5 +1,6 @@
 package com.ddkmm_000.ratemyclass;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Button;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 
 import java.util.ArrayList;
@@ -37,6 +39,10 @@ public class MainActivity extends ActionBarActivity {
     //JSONTokener tokener = new JSONTokener()
     JSONParser parser = new JSONParser();
 
+    final Context context = this;
+
+    int successVal = 0;
+    int paramVal = 0;
 
 
     // url to create new feedback
@@ -63,6 +69,65 @@ public class MainActivity extends ActionBarActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        if (getIntent().getExtras().getInt("successVar") == 1){
+            paramVal = 1;
+        }
+        else if (getIntent().getExtras().getInt("successVar") == 2){
+            paramVal = 2;
+        }
+
+        if (paramVal == 1) {
+            final AlertDialog alertDialog;
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    this);
+
+            // set title
+            alertDialogBuilder.setTitle("Success!");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Feedback submitted successfully")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, close
+                            // current activity
+                        }
+                    });
+
+            // create alert dialog
+            alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }
+        else if (paramVal == 2)
+        {
+            final AlertDialog alertDialog;
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    this);
+
+            // set title
+            alertDialogBuilder.setTitle("Oops!");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Feedback could not be submitted, please try again.")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, close
+                            // current activity
+                        }
+                    });
+
+            // create alert dialog
+            alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }
     }
 
 
@@ -88,15 +153,15 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /** Called when the user clicks the 'Send' button **/
+    /** Called when the user clicks the 'Send' button
     public void sendMessage(View view)
     {
         EditText editText = (EditText)findViewById(R.id.edit_message);
         String message = editText.getText().toString() + " Forever...";
         editText.setText(message);
-    }
+    }**/
 
-    /** Print the value of the seek bar to the text box **/
+    /** Print the value of the seek bar to the text box
     public void getValue(View view)
     {
         EditText editText = (EditText)findViewById(R.id.edit_message);
@@ -104,7 +169,7 @@ public class MainActivity extends ActionBarActivity {
         int value = seeker.getProgress();
         String textVal = String.valueOf(value);
         editText.setText(textVal);
-    }
+    }**/
 
     //** Send feedback data to PHP (which will create a row in the database) **/
     public void sendFeedback(View view)
@@ -194,13 +259,19 @@ public class MainActivity extends ActionBarActivity {
                     //dlgAlert.create().show();
 
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    i.putExtra("successVar", 1);
                     startActivity(i);
 
                     // closing this screen
                     finish();
                 } else {
                     // failed to create product
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    i.putExtra("successVar", 2);
+                    startActivity(i);
 
+                    // closing this screen
+                    finish();
                     //dlgAlert.setMessage("Feedback could not be sent, please try again");
                     //dlgAlert.setTitle("Error");
                     //dlgAlert.setPositiveButton("OK", null);

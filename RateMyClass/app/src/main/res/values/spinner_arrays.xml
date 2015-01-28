@@ -2,7 +2,15 @@
 <resources>
     <string-array name="spinner_values">
         <item>No comment</item>
-        <item>Lecturer\'s voice was monotone</item>
-        <item>Practical value not demonstrated</item>
+        <item>Delivery was monotone</item>
+        <item>Lecturer did not seem interested</item>
+        <item>PLACEHOLDER</item>
+        <item>PLACEHOLDER</item>
+        <item>PLACEHOLDER</item>
+        <item>PLACEHOLDER</item>
+        <item>PLACEHOLDER</item>
+        <item>PLACEHOLDER</item>
+        <item>PLACEHOLDER</item>
+        <item>PLACEHOLDER</item>
     </string-array>
 </resources>
