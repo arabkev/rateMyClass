@@ -13,4 +13,8 @@
         <item>PLACEHOLDER</item>
         <item>PLACEHOLDER</item>
     </string-array>
+    <string-array name="class_types">
+        <item>Lecture</item>
+        <item>Lab</item>
+    </string-array>
 </resources>

@@ -1,12 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
     <Button
         android:text="Create Class"
         android:onClick="createClass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="@android:style/TextAppearance.StatusBar.Title"
+        android:textSize="40dp"
+        android:id="@+id/createBtn"/>
 
-</LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/createBtn"
+        android:layout_above="@id/createBtn"
+        android:text="Member of Staff: "
+        android:textColor="@color/amber"
+        android:textStyle="italic"
+        android:id="@+id/stafftxt"/>
+    <Spinner
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/staffSpinner"
+        android:layout_above="@id/createBtn"
+        android:layout_toRightOf="@id/stafftxt"
+        >
+    </Spinner>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/createBtn"
+        android:layout_above="@id/staffSpinner"
+        android:text="Module: "
+        android:textColor="@color/amber"
+        android:textStyle="italic"
+        android:id="@+id/moduletxt"/>
+    <Spinner
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/moduleSpinner"
+        android:layout_above="@id/staffSpinner"
+        android:layout_centerHorizontal="true"
+        >
+    </Spinner>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/createBtn"
+        android:layout_above="@id/moduleSpinner"
+        android:text="Class Type: "
+        android:textColor="@color/amber"
+        android:textStyle="italic"
+        android:id="@+id/typetxt"/>
+    <Spinner
+        android:layout_width="252dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/typeSpinner"
+        android:layout_above="@id/moduleSpinner"
+        android:layout_centerHorizontal="true"
+        >
+    </Spinner>
+
+
+
+
+</RelativeLayout>

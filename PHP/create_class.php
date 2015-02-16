@@ -9,7 +9,7 @@
 $response = array();
  
 // check for required fields
-if (isset($_POST['Class_Type']) && isset($_POST['Module_Code']) && isset($_POST['Staff_ID']) && isset($_POST['DateTime'])) {
+if (isset($_POST['Class_Type']) && isset($_POST['Module_Code']) && isset($_POST['Staff_ID'])) {
  
     $type = $_POST['Class_Type'];
     $module = $_POST['Module_Code'];
@@ -23,13 +23,14 @@ if (isset($_POST['Class_Type']) && isset($_POST['Module_Code']) && isset($_POST[
     $db = new DB_CONNECT();
  
     // mysql inserting a new row
-    $result = mysql_query("INSERT INTO class(Class_Type, Module_Code, Staff_ID, DateTime) VALUES('$type', '$module', '$staff', '$datetime')");
+    $result = mysql_query("INSERT INTO class(Class_Type, Module_Code, Staff_ID, DateTime) VALUES('$type', '$module', '$staff', CURRENT_TIMESTAMP)");
  
     // check if row inserted or not
     if ($result) {
         // successfully inserted into database
         $response["success"] = 1;
         $response["message"] = "Class successfully created.";
+        $response["id"] = mysql_insert_id();
  
         // echoing JSON response
         echo json_encode($response);

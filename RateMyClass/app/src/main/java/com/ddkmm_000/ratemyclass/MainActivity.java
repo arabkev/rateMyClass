@@ -7,15 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-import android.app.Activity;
+import android.widget.Button;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
@@ -27,7 +25,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -43,6 +40,7 @@ public class MainActivity extends ActionBarActivity {
 
     int successVal = 0;
     int paramVal = 0;
+    int classid = 0;
 
 
     // url to create new feedback
@@ -60,21 +58,183 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /** Set the green-red colour scheme for the seek bar **/
-        SeekBar mSeekBar = (SeekBar) findViewById(R.id.seekBar);
-        mSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        /** Set the green-red colour scheme for the seek bars **/
+        final SeekBar mSeekBar = (SeekBar) findViewById(R.id.seekBar);
+        mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress <= 33){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));}
+                else if (progress <= 66){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekeramber));}
+                else {seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekergreen));}
+            }
 
-        /** Populate the spinner with the pre-defined comments **/
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        mSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        final SeekBar mSeekBar2 = (SeekBar) findViewById(R.id.seekBarInformative);
+        mSeekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress <= 33){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));}
+                else if (progress <= 66){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekeramber));}
+                else {seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekergreen));}
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        mSeekBar2.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        final SeekBar mSeekBar3 = (SeekBar) findViewById(R.id.seekBarInnovative);
+        mSeekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress <= 33){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));}
+                else if (progress <= 66){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekeramber));}
+                else {seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekergreen));}
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        mSeekBar3.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        final SeekBar mSeekBar4 = (SeekBar) findViewById(R.id.seekBarIntelligible);
+        mSeekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress <= 33){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));}
+                else if (progress <= 66){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekeramber));}
+                else {seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekergreen));}
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        mSeekBar4.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        final SeekBar mSeekBar5 = (SeekBar) findViewById(R.id.seekBarInteractive);
+        mSeekBar5.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress <= 33){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));}
+                else if (progress <= 66){seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekeramber));}
+                else {seekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekergreen));}
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        mSeekBar5.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+
+
+        /** Hide the 'Remove Comment' buttons **/
+        Button btn = (Button)findViewById(R.id.rmvBtnInteresting);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnInteractive);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnInformative);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnIntelligible);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnInnovative);
+        btn.setVisibility(View.GONE);
+
+        /** Populate the spinners with the pre-defined comments **/
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setVisibility(View.INVISIBLE);
+        spinner = (Spinner)findViewById(R.id.spinnerInformative);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setVisibility(View.INVISIBLE);
+        spinner = (Spinner)findViewById(R.id.spinnerInnovative);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setVisibility(View.INVISIBLE);
+        spinner = (Spinner)findViewById(R.id.spinnerIntelligible);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setVisibility(View.INVISIBLE);
+        spinner = (Spinner)findViewById(R.id.spinnerInteractive);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setVisibility(View.INVISIBLE);
+
+        if (getIntent().getExtras().getInt("classVar") == 1){
+            final AlertDialog alertDialog;
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    this);
+
+            // set title
+            alertDialogBuilder.setTitle("Success!");
+
+            // set dialog message
+            alertDialogBuilder
+                    .setMessage("Class created successfully")
+                    .setCancelable(false)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, close
+                            // current activity
+                        }
+                    });
+
+            // create alert dialog
+            alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        }
 
         if (getIntent().getExtras().getInt("successVar") == 1){
             paramVal = 1;
         }
         else if (getIntent().getExtras().getInt("successVar") == 2){
             paramVal = 2;
+        }
+
+        if (getIntent().getExtras().getInt("classid") != 0){
+            classid = getIntent().getExtras().getInt("classid");
         }
 
         if (paramVal == 1) {
@@ -134,7 +294,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_feedback, menu);
         return true;
     }
 
@@ -146,11 +306,127 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_exit) {
+            finish();
+            return true;
+        }
+        if (id == R.id.action_newclass){
+            startActivity(new Intent(getApplicationContext(), CreateClassActivity.class));
+            finish();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addInterestingComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        Button btn = (Button)findViewById(R.id.addBtnInteresting);
+        spinner.setVisibility(View.VISIBLE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnInteresting);
+        btn.setVisibility(View.VISIBLE);
+        spinner.performClick();
+    }
+
+    public void removeInterestingComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        Button btn = (Button)findViewById(R.id.rmvBtnInteresting);
+        spinner.setSelection(0);
+        spinner.setVisibility(View.GONE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.addBtnInteresting);
+        btn.setVisibility(View.VISIBLE);
+    }
+
+    public void addInteractiveComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerInteractive);
+        Button btn = (Button)findViewById(R.id.addBtnInteractive);
+        spinner.setVisibility(View.VISIBLE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnInteractive);
+        btn.setVisibility(View.VISIBLE);
+        spinner.performClick();
+    }
+
+    public void removeInteractiveComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerInteractive);
+        Button btn = (Button)findViewById(R.id.rmvBtnInteractive);
+        spinner.setSelection(0);
+        spinner.setVisibility(View.GONE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.addBtnInteractive);
+        btn.setVisibility(View.VISIBLE);
+    }
+
+    public void addInformativeComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerInformative);
+        Button btn = (Button)findViewById(R.id.addBtnInformative);
+        spinner.setVisibility(View.VISIBLE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnInformative);
+        btn.setVisibility(View.VISIBLE);
+        spinner.performClick();
+    }
+
+    public void removeInformativeComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerInformative);
+        Button btn = (Button)findViewById(R.id.rmvBtnInformative);
+        spinner.setSelection(0);
+        spinner.setVisibility(View.GONE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.addBtnInformative);
+        btn.setVisibility(View.VISIBLE);
+    }
+
+    public void addIntelligibleComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerIntelligible);
+        Button btn = (Button)findViewById(R.id.addBtnIntelligible);
+        spinner.setVisibility(View.VISIBLE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnIntelligible);
+        btn.setVisibility(View.VISIBLE);
+        spinner.performClick();
+    }
+
+    public void removeIntelligibleComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerIntelligible);
+        Button btn = (Button)findViewById(R.id.rmvBtnIntelligible);
+        spinner.setSelection(0);
+        spinner.setVisibility(View.GONE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.addBtnIntelligible);
+        btn.setVisibility(View.VISIBLE);
+    }
+
+    public void addInnovativeComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerInnovative);
+        Button btn = (Button)findViewById(R.id.addBtnInnovative);
+        spinner.setVisibility(View.VISIBLE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.rmvBtnInnovative);
+        btn.setVisibility(View.VISIBLE);
+        spinner.performClick();
+    }
+
+    public void removeInnovativeComment(View view)
+    {
+        Spinner spinner = (Spinner)findViewById(R.id.spinnerInnovative);
+        Button btn = (Button)findViewById(R.id.rmvBtnInnovative);
+        spinner.setSelection(0);
+        spinner.setVisibility(View.GONE);
+        btn.setVisibility(View.GONE);
+        btn = (Button)findViewById(R.id.addBtnInnovative);
+        btn.setVisibility(View.VISIBLE);
     }
 
     /** Called when the user clicks the 'Send' button
@@ -204,20 +480,32 @@ public class MainActivity extends ActionBarActivity {
             //String name = inputName.getText().toString();
             //String price = inputPrice.getText().toString();
             //String description = inputDesc.getText().toString();
+            //int Class_ID = 1;
+
             SeekBar seeker = (SeekBar)findViewById(R.id.seekBar);
             Spinner spinner = (Spinner)findViewById(R.id.spinner);
-
-            int Class_ID = 1;
             int Interesting_Rating = seeker.getProgress();
             String Interesting_Comment = spinner.getSelectedItem().toString();
-            int Informative_Rating = 1;
-            String Informative_Comment = "No comment";
-            int Interactive_Rating = 1;
-            String Interactive_Comment = "No comment";
-            int Intelligible_Rating = 1;
-            String Intelligible_Comment = "No comment";
-            int Innovative_Rating = 1;
-            String Innovative_Comment = "No comment";
+
+            seeker = (SeekBar)findViewById(R.id.seekBarInformative);
+            spinner = (Spinner)findViewById(R.id.spinnerInformative);
+            int Informative_Rating = seeker.getProgress();;
+            String Informative_Comment = spinner.getSelectedItem().toString();
+
+            seeker = (SeekBar)findViewById(R.id.seekBarInteractive);
+            spinner = (Spinner)findViewById(R.id.spinnerInteractive);
+            int Interactive_Rating = seeker.getProgress();;
+            String Interactive_Comment = spinner.getSelectedItem().toString();
+
+            seeker = (SeekBar)findViewById(R.id.seekBarIntelligible);
+            spinner = (Spinner)findViewById(R.id.spinnerIntelligible);
+            int Intelligible_Rating = seeker.getProgress();;
+            String Intelligible_Comment = spinner.getSelectedItem().toString();
+
+            seeker = (SeekBar)findViewById(R.id.seekBarInnovative);
+            spinner = (Spinner)findViewById(R.id.spinnerInnovative);
+            int Innovative_Rating = seeker.getProgress();;
+            String Innovative_Comment = spinner.getSelectedItem().toString();
 
 
             // Building Parameters
@@ -225,7 +513,7 @@ public class MainActivity extends ActionBarActivity {
             //params.add(new BasicNameValuePair("name", name));
             //params.add(new BasicNameValuePair("price", price));
             //params.add(new BasicNameValuePair("description", description));
-            params.add(new BasicNameValuePair("Class_ID", Integer.toString(Class_ID)));
+            params.add(new BasicNameValuePair("Class_ID", Integer.toString(classid)));
             params.add(new BasicNameValuePair("Interesting_Rating", Integer.toString(Interesting_Rating)));
             params.add(new BasicNameValuePair("Interesting_Comment", Interesting_Comment));
             params.add(new BasicNameValuePair("Informative_Rating", Integer.toString(Informative_Rating)));
@@ -260,6 +548,8 @@ public class MainActivity extends ActionBarActivity {
 
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     i.putExtra("successVar", 1);
+                    i.putExtra("classid", classid);
+                    i.putExtra("classVar", 3);
                     startActivity(i);
 
                     // closing this screen
@@ -268,6 +558,8 @@ public class MainActivity extends ActionBarActivity {
                     // failed to create product
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     i.putExtra("successVar", 2);
+                    i.putExtra("classid", classid);
+                    i.putExtra("classVar", 3);
                     startActivity(i);
 
                     // closing this screen

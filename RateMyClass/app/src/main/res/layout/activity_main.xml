@@ -8,6 +8,40 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="215dp"
+            android:text="@string/poor"
+            android:textColor="@color/red"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="400dp"
+            android:text="@string/average"
+            android:textColor="@color/amber"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="470dp"
+            android:text="@string/good"
+            android:textColor="@color/green"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
@@ -19,6 +53,7 @@
         <SeekBar
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/seekBar"
             android:layout_weight="1"
             android:indeterminate="false"
@@ -32,12 +67,30 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <TextView
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/comment"
             android:layout_marginLeft="27dp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white" />-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="addInterestingComment"
+            android:id = "@+id/addBtnInteresting"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="removeInterestingComment"
+            android:id = "@+id/rmvBtnInteresting"
+            />
 
         <Spinner
             android:layout_weight="1"
@@ -50,19 +103,283 @@
 
     </LinearLayout>
 
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/interactive" />
+
+        <SeekBar
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"
+            android:id="@+id/seekBarInteractive"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:layout_width="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comment"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/white" />-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="addInteractiveComment"
+            android:id = "@+id/addBtnInteractive"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="removeInteractiveComment"
+            android:id = "@+id/rmvBtnInteractive"
+            />
+
+        <Spinner
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerInteractive"
+            >
+        </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/informative" />
+
+        <SeekBar
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="6dp"
+            android:id="@+id/seekBarInformative"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:layout_width="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comment"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/white" />-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="addInformativeComment"
+            android:id = "@+id/addBtnInformative"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="removeInformativeComment"
+            android:id = "@+id/rmvBtnInformative"
+            />
+
+        <Spinner
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerInformative"
+            >
+        </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/intelligible" />
+
+        <SeekBar
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/seekBarIntelligible"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:layout_width="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comment"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/white" />-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="addIntelligibleComment"
+            android:id = "@+id/addBtnIntelligible"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="removeIntelligibleComment"
+            android:id = "@+id/rmvBtnIntelligible"
+            />
+
+        <Spinner
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerIntelligible"
+            >
+        </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/innovative" />
+
+        <SeekBar
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/seekBarInnovative"
+            android:layout_weight="1"
+            android:indeterminate="false"
+            android:layout_marginLeft="23dp"
+            android:layout_width="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/comment"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/white" />-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="addInnovativeComment"
+            android:id = "@+id/addBtnInnovative"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_comment"
+            android:layout_marginLeft="22dp"
+            android:onClick="removeInnovativeComment"
+            android:id = "@+id/rmvBtnInnovative"
+            />
+
+        <Spinner
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerInnovative"
+            >
+        </Spinner>
+
+    </LinearLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <Button
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_send"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:background="@color/white"
-            android:onClick="sendFeedback" />
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="@string/button_send"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                android:background="@color/white"
+                android:onClick="sendFeedback" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

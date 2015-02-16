@@ -6,8 +6,16 @@
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Submit Feedback</string>
     <string name="comment">Comment: </string>
+    <string name="poor">Poor</string>
+    <string name="average">Average</string>
+    <string name="good">Good</string>
+    <string name="add_comment">Add Comment</string>
+    <string name="remove_comment">Remove Comment</string>
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="amber">#FFBF00</color>
+    <color name="green">#00FF00</color>
 
 </resources>
