@@ -1,0 +1,421 @@
+﻿
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #000000;
+    text-align: center;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 1em;
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+}
+
+h1 {
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+blockquote {
+    margin: 1em;
+    padding: .5em;
+    background-color: #eeeeee;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+    blockquote p {
+        margin: .2em;
+    }
+
+#centerColumn {
+    margin-top: 2em;
+    margin-left: 6em;
+    margin-right: 6em;
+    voice-family: "\"}\"";
+    voice-family: inherit;
+    padding: 1em .5em 2em .5em;
+    background: #FFFFFF;
+    text-align: left;
+    border: 1px solid #999999;
+    border-radius: 25px;
+    /*background-color: #ffffff;*/
+    background: -moz-linear-gradient(left, #CCCCCC 0%, #EEEEEE 50%, #EEEEEE 50%, #CCCCCC 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#CCCCCC),color-stop(50%,#EEEEEE), color-stop(50%,#EEEEEE), color-stop(100%,#CCCCCC));
+    overflow: auto;
+}
+
+html > body #centerColumn {
+    margin-left: 6em;
+    margin-right: 6em;
+}
+
+    #centerColumn h2 {
+        margin: 0 0 -.5em 0;
+        padding: .75em 0 0 0;
+        font-size: 1em;
+        letter-spacing: .1em;
+    }
+
+#header {
+    margin: -1em -.5em 0 -.5em !important;
+    margin: -2em -1em 0 -1em;
+    padding: 0 0 0 0;
+    height: 5em;
+    background-color: #777777;
+    border-radius: 25px 25px 0px 0px;
+    color: #eeeeee;
+}
+
+    #header h1 {
+        margin: 0 0 -.6em 0;
+        padding: .5em 0 0 1em;
+        font-size: 1.5em;
+        letter-spacing: .1em;
+    }
+
+    #header h2 {
+        margin: 0 0 0 0;
+        padding: 1em 0 0 1.75em;
+        font-size: .9em;
+        font-weight: 300;
+        letter-spacing: .1em;
+    }
+
+#nav {
+    margin: 0 0 1em 0;
+    padding: .4em 0 0 0;
+    background: #F6F0E0;
+}
+
+    #nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #nav li {
+        margin: 0;
+        padding: .25em;
+        display: inline;
+    }
+
+#footer {
+    position: relative;
+    bottom: 0;
+    margin: 5em 0 0 0;
+    padding: 0;
+    height: 4em;
+    line-height: 4em;
+    text-align: center;
+    font-size: .7em;
+    background: #BFBD93;
+    border-top: 1px solid #999999;
+}
+
+.login_email {
+    border-radius: 8px;
+    width: 200px;
+    height: 35px;
+    /*font-family: 'Arial Rounded MT';*/
+    font-size: 18px;
+}
+
+.login_password {
+    border-radius: 8px;
+    width: 200px;
+    height: 35px;
+    /*font-family: 'Arial Rounded MT';*/
+    font-size: 18px;
+    margin-left: 32px;
+}
+
+.login_button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #777777;
+}
+
+    .login_button:hover, .login_button:focus {
+        background-color: #999999;
+    }
+
+
+/*Code adapted from 'mediagroove' by Mayumi Takami*/
+
+/*table {
+    width: 650px;
+    border-collapse: collapse;
+    border: 1px solid #FFCA5E;
+    margin: 25px;
+}
+
+caption {
+    font: 1.8em/1.8em Arial, Helvetica, sans-serif;
+    text-align: left;
+    text-indent: 10px;
+    background: url(http://www.nonamedesign.info/table_gallery/bg_caption.jpg) right top;
+    height: 45px;
+    color: #FFAA00;
+}
+
+tbody th {
+    background: url(http://www.nonamedesign.info/table_gallery/bg_th.jpg) no-repeat right;
+    height: 47px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    font-size: 1.0em;
+    font-weight: bold;
+    padding: 0px 7px;
+    margin: 20px 0px 0px;
+    text-align: left;
+    border-right: 1px solid #FCF1D4;
+}
+
+tbody tr {
+    background: url(http://www.nonamedesign.info/table_gallery/bg_td1.jpg) repeat-x top;
+}
+
+    tbody tr.odd {
+        background: #FFF8E8 url(http://www.nonamedesign.info/table_gallery/bg_td2.jpg) repeat-x;
+    }
+
+tbody td {
+    font-size: 0.8em;
+    line-height: 1.4em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #777777;
+    padding: 10px 7px;
+    border-top: 1px solid #FFCA5E;
+    border-right: 1px solid #DDDDDD;
+    text-align: left;
+}
+
+a {
+    color: #777777;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+    a:hover {
+        color: #F8A704;
+        text-decoration: underline;
+    }
+
+tfoot th {
+    background: url(http://www.nonamedesign.info/table_gallery/bg_total.jpg) repeat-x bottom;
+    color: #FFFFFF;
+    height: 30px;
+}
+
+tfoot td {
+    background: url(http://www.nonamedesign.info/table_gallery/bg_total.jpg) repeat-x bottom;
+    color: #FFFFFF;
+    height: 30px;
+}*/
+
+a {
+    color: #777777;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #F8A704;
+    text-decoration: underline;
+}
+
+.InfoHeading {
+    font-weight: bold;
+}
+
+.chart {
+    width: 50%;
+    float: left;
+    position: relative;
+    border-left: 1px solid #a0a0a0;
+}
+
+.comments {
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-left: 0px;
+}
+
+.pie {
+    width: 0%;
+    bottom: 0px;
+    border-left: 1px solid #a0a0a0;
+    height: 43px;
+}
+
+.CSSTableGenerator {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    box-shadow: 10px 10px 5px #888888;
+    border: 1px solid #000000;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-top-right-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+    .CSSTableGenerator table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .CSSTableGenerator tr:last-child td:last-child {
+        -moz-border-radius-bottomright: 0px;
+        -webkit-border-bottom-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .CSSTableGenerator table tr:first-child td:first-child {
+        -moz-border-radius-topleft: 0px;
+        -webkit-border-top-left-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .CSSTableGenerator table tr:first-child td:last-child {
+        -moz-border-radius-topright: 0px;
+        -webkit-border-top-right-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .CSSTableGenerator tr:last-child td:first-child {
+        -moz-border-radius-bottomleft: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .CSSTableGenerator tr:hover td {
+        background-color: #ffffff;
+    }
+
+    .CSSTableGenerator td {
+        vertical-align: middle;
+        background: -o-linear-gradient(bottom, #dddddd 5%, #ffffff 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dddddd), color-stop(1, #ffffff) );
+        background: -moz-linear-gradient( center top, #dddddd 5%, #ffffff 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dddddd", endColorstr="#ffffff");
+        background: -o-linear-gradient(top,#dddddd,ffffff);
+        background-color: #dddddd;
+        border: 1px solid #000000;
+        border-width: 0px 1px 1px 0px;
+        text-align: left;
+        padding: 7px;
+        font-size: 12px;
+        font-family: Helvetica;
+        font-weight: normal;
+        color: #000000;
+    }
+
+    .CSSTableGenerator tr:last-child td {
+        border-width: 0px 1px 0px 0px;
+    }
+
+    .CSSTableGenerator tr td:last-child {
+        border-width: 0px 0px 1px 0px;
+    }
+
+    .CSSTableGenerator tr:last-child td:last-child {
+        border-width: 0px 0px 0px 0px;
+    }
+
+    .CSSTableGenerator tr:first-child td {
+        background: -o-linear-gradient(bottom, #000000 5%, #adadad 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #adadad) );
+        background: -moz-linear-gradient( center top, #000000 5%, #adadad 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#adadad");
+        background: -o-linear-gradient(top,#000000,adadad);
+        background-color: #000000;
+        border: 0px solid #000000;
+        text-align: center;
+        border-width: 0px 0px 1px 1px;
+        font-size: 16px;
+        font-family: Helvetica;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .CSSTableGenerator tr:first-child:hover td {
+        background: -o-linear-gradient(bottom, #000000 5%, #adadad 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #adadad) );
+        background: -moz-linear-gradient( center top, #000000 5%, #adadad 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#adadad");
+        background: -o-linear-gradient(top,#000000,adadad);
+        background-color: #000000;
+    }
+
+    .CSSTableGenerator tr:first-child th {
+        background: -o-linear-gradient(bottom, #000000 5%, #adadad 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #adadad) );
+        background: -moz-linear-gradient( center top, #000000 5%, #adadad 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#adadad");
+        background: -o-linear-gradient(top,#000000,adadad);
+        background-color: #000000;
+        border: 0px solid #000000;
+        text-align: center;
+        border-width: 0px 0px 1px 1px;
+        font-size: 16px;
+        font-family: Helvetica;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .CSSTableGenerator tr:first-child:hover th {
+        background: -o-linear-gradient(bottom, #000000 5%, #adadad 100%);
+        background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #adadad) );
+        background: -moz-linear-gradient( center top, #000000 5%, #adadad 100% );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#adadad");
+        background: -o-linear-gradient(top,#000000,adadad);
+        background-color: #000000;
+    }
+
+    .CSSTableGenerator th a{
+        color: #FFF;
+    }
+
+    .CSSTableGenerator tr:first-child td:first-child {
+        border-width: 0px 0px 1px 0px;
+    }
+
+    .CSSTableGenerator tr:first-child td:last-child {
+        border-width: 0px 0px 1px 1px;
+    }

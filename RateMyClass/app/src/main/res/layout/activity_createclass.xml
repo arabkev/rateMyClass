@@ -6,15 +6,17 @@
     android:background="@color/black">
 
     <Button
-        android:text="Create Class"
+        android:text="Give Feedback"
         android:onClick="createClass"
-        android:layout_width="252dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textAppearance="@android:style/TextAppearance.StatusBar.Title"
-        android:textSize="40dp"
-        android:id="@+id/createBtn"/>
+        android:textSize="35dp"
+        android:id="@+id/createBtn"
+        android:background="@drawable/btn_white"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"/>
 
 
     <TextView
@@ -22,55 +24,62 @@
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/createBtn"
         android:layout_above="@id/createBtn"
+        android:layout_marginBottom="32dp"
         android:text="Member of Staff: "
-        android:textColor="@color/amber"
-        android:textStyle="italic"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-condensed"
         android:id="@+id/stafftxt"/>
     <Spinner
         android:layout_width="252dp"
         android:layout_height="wrap_content"
         android:id="@+id/staffSpinner"
         android:layout_above="@id/createBtn"
+        android:layout_marginBottom="30dp"
         android:layout_toRightOf="@id/stafftxt"
         >
     </Spinner>
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/createBtn"
         android:layout_above="@id/staffSpinner"
-        android:text="Module: "
-        android:textColor="@color/amber"
-        android:textStyle="italic"
-        android:id="@+id/moduletxt"/>
-    <Spinner
-        android:layout_width="252dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/moduleSpinner"
-        android:layout_above="@id/staffSpinner"
-        android:layout_centerHorizontal="true"
-        >
-    </Spinner>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/createBtn"
-        android:layout_above="@id/moduleSpinner"
+        android:layout_marginBottom="32dp"
         android:text="Class Type: "
-        android:textColor="@color/amber"
-        android:textStyle="italic"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-condensed"
         android:id="@+id/typetxt"/>
     <Spinner
         android:layout_width="252dp"
         android:layout_height="wrap_content"
         android:id="@+id/typeSpinner"
-        android:layout_above="@id/moduleSpinner"
-        android:layout_centerHorizontal="true"
+        android:layout_above="@id/staffSpinner"
+        android:layout_marginBottom="30dp"
+        android:layout_toRightOf="@id/typetxt"
         >
     </Spinner>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/createBtn"
+        android:layout_above="@id/typeSpinner"
+        android:layout_marginBottom="32dp"
+        android:text="Module: "
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-condensed"
+        android:id="@+id/moduletxt"/>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/moduleSpinner"
+        android:layout_above="@id/typeSpinner"
+        android:layout_marginBottom="30dp"
+        android:layout_toRightOf="@id/moduletxt"
+        >
+    </Spinner>
+
+
 
 
 

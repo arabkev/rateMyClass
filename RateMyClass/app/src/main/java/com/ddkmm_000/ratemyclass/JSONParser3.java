@@ -93,6 +93,7 @@ public class JSONParser3 {
             jObj = new JSONObject(json);
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
+            Log.e("JSON Parser", "String data: " + json);
         }
 
         // return JSON String

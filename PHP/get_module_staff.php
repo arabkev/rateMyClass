@@ -67,4 +67,4 @@ if (isset($_GET["module"])){
     // echoing JSON response
     echo json_encode($response);
 }
-?>
+?>	

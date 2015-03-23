@@ -17,6 +17,8 @@
             android:text="@string/poor"
             android:textColor="@color/red"
             android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             />
 
         <TextView
@@ -26,6 +28,8 @@
             android:text="@string/average"
             android:textColor="@color/amber"
             android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             />
 
         <TextView
@@ -35,6 +39,8 @@
             android:text="@string/good"
             android:textColor="@color/green"
             android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             />
 
     </LinearLayout>
@@ -48,7 +54,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/interesting" />
+            android:src="@drawable/interesting2" />
 
         <SeekBar
             android:layout_height="wrap_content"
@@ -81,6 +87,10 @@
             android:layout_marginLeft="22dp"
             android:onClick="addInterestingComment"
             android:id = "@+id/addBtnInteresting"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -90,14 +100,20 @@
             android:layout_marginLeft="22dp"
             android:onClick="removeInterestingComment"
             android:id = "@+id/rmvBtnInteresting"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Spinner
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="40dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             >
         </Spinner>
 
@@ -114,7 +130,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/interactive" />
+            android:src="@drawable/interactive2" />
 
         <SeekBar
             android:layout_height="wrap_content"
@@ -147,6 +163,10 @@
             android:layout_marginLeft="22dp"
             android:onClick="addInteractiveComment"
             android:id = "@+id/addBtnInteractive"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -156,14 +176,20 @@
             android:layout_marginLeft="22dp"
             android:onClick="removeInteractiveComment"
             android:id = "@+id/rmvBtnInteractive"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Spinner
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="40dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerInteractive"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             >
         </Spinner>
 
@@ -178,7 +204,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/informative" />
+            android:src="@drawable/informative2" />
 
         <SeekBar
             android:layout_height="wrap_content"
@@ -211,6 +237,10 @@
             android:layout_marginLeft="22dp"
             android:onClick="addInformativeComment"
             android:id = "@+id/addBtnInformative"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -220,14 +250,20 @@
             android:layout_marginLeft="22dp"
             android:onClick="removeInformativeComment"
             android:id = "@+id/rmvBtnInformative"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Spinner
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="40dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerInformative"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             >
         </Spinner>
 
@@ -242,7 +278,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/intelligible" />
+            android:src="@drawable/intelligible2" />
 
         <SeekBar
             android:layout_height="wrap_content"
@@ -274,6 +310,10 @@
             android:layout_marginLeft="22dp"
             android:onClick="addIntelligibleComment"
             android:id = "@+id/addBtnIntelligible"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -283,14 +323,20 @@
             android:layout_marginLeft="22dp"
             android:onClick="removeIntelligibleComment"
             android:id = "@+id/rmvBtnIntelligible"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Spinner
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="40dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerIntelligible"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             >
         </Spinner>
 
@@ -305,7 +351,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/innovative" />
+            android:src="@drawable/innovative2" />
 
         <SeekBar
             android:layout_height="wrap_content"
@@ -338,6 +384,10 @@
             android:layout_marginLeft="22dp"
             android:onClick="addInnovativeComment"
             android:id = "@+id/addBtnInnovative"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -347,14 +397,20 @@
             android:layout_marginLeft="22dp"
             android:onClick="removeInnovativeComment"
             android:id = "@+id/rmvBtnInnovative"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:background="@drawable/btn_black"
+            android:textColor="@color/white"
             />
 
         <Spinner
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="40dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerInnovative"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
             >
         </Spinner>
 
@@ -375,9 +431,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:text="@string/button_send"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                android:background="@color/white"
-                android:onClick="sendFeedback" />
+                android:background="@drawable/btn_white"
+                android:onClick="sendFeedback"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                android:textSize="15pt"/>
 
         </RelativeLayout>
 

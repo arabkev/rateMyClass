@@ -1,0 +1,6 @@
+c:\users\ddkmm_000\documents\visual studio 2013\Projects\rateMyClassWeb\rateMyClassWeb\bin\rateMyClassWeb.dll.config
+c:\users\ddkmm_000\documents\visual studio 2013\Projects\rateMyClassWeb\rateMyClassWeb\bin\rateMyClassWeb.dll
+c:\users\ddkmm_000\documents\visual studio 2013\Projects\rateMyClassWeb\rateMyClassWeb\bin\rateMyClassWeb.pdb
+c:\users\ddkmm_000\documents\visual studio 2013\Projects\rateMyClassWeb\rateMyClassWeb\obj\Debug\rateMyClassWeb.csprojResolveAssemblyReference.cache
+c:\users\ddkmm_000\documents\visual studio 2013\Projects\rateMyClassWeb\rateMyClassWeb\obj\Debug\rateMyClassWeb.dll
+c:\users\ddkmm_000\documents\visual studio 2013\Projects\rateMyClassWeb\rateMyClassWeb\obj\Debug\rateMyClassWeb.pdb

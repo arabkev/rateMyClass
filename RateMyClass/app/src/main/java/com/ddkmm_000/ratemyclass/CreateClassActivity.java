@@ -1,6 +1,7 @@
 package com.ddkmm_000.ratemyclass;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -59,10 +61,17 @@ public class CreateClassActivity extends ActionBarActivity {
     Spinner staffSpinner;
     Spinner typeSpinner;
 
-    private static String url_all_modules = "http://ratemyclass.byethost5.com/get_modules.php";
-    private static String url_module_staff = "http://ratemyclass.byethost5.com/get_module_staff.php";
-    private static String url_staff_details = "http://ratemyclass.byethost5.com/get_staff_details_from_id.php";
-    private static String url_create_class = "http://ratemyclass.byethost5.com/create_class.php";
+    ArrayList<Integer> staffSpinnerMap;
+
+    //private static String url_all_modules = "http://ratemyclass.byethost5.com/get_modules.php";
+    //private static String url_module_staff = "http://ratemyclass.byethost5.com/get_module_staff.php";
+    //private static String url_staff_details = "http://ratemyclass.byethost5.com/get_staff_details_from_id.php";
+    //private static String url_create_class = "http://ratemyclass.byethost5.com/create_class.php";
+
+    private static String url_all_modules = "https://zeno.computing.dundee.ac.uk/2014-projects/kevinmckenzie/get_modules.php";
+    private static String url_module_staff = "https://zeno.computing.dundee.ac.uk/2014-projects/kevinmckenzie/get_module_staff.php";
+    private static String url_create_class = "https://zeno.computing.dundee.ac.uk/2014-projects/kevinmckenzie/create_class.php";
+    private static String url_class_info = "https://zeno.computing.dundee.ac.uk/2014-projects/kevinmckenzie/get_class_info.php";
 
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MODULES = "modules";
@@ -71,6 +80,7 @@ public class CreateClassActivity extends ActionBarActivity {
 
     JSONArray modules = null;
     JSONArray staff = null;
+    JSONArray classArray = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,7 +172,9 @@ public class CreateClassActivity extends ActionBarActivity {
         Spinner staffSpinner = (Spinner)findViewById(R.id.staffSpinner);
 
         String m = spinner.getSelectedItem().toString().substring(0,7);
-        int s = Integer.parseInt(staffSpinner.getSelectedItem().toString().substring(3, 4));
+        //int s = Integer.parseInt(staffSpinner.getSelectedItem().toString().substring(3, 4));
+        int s = staffSpinnerMap.get(staffSpinner.getSelectedItemPosition());
+        Log.d("STAFF ID FOR CREATING CLASS", "" + s);
         new CreateClass(m, s).execute();
     }
 
@@ -176,6 +188,9 @@ public class CreateClassActivity extends ActionBarActivity {
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
+            TextView txt = (TextView)pDialog.findViewById(android.R.id.message);
+            Typeface face = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
+            txt.setTypeface(face);
         }
 
         protected String doInBackground(String... args) {
@@ -242,9 +257,15 @@ public class CreateClassActivity extends ActionBarActivity {
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
+            TextView txt = (TextView)pDialog.findViewById(android.R.id.message);
+            Typeface face = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
+            txt.setTypeface(face);
+
         }
 
         protected String doInBackground(String... args) {
+            staffSpinnerMap = new ArrayList<Integer>();
+
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("module", module));
 
@@ -265,8 +286,8 @@ public class CreateClassActivity extends ActionBarActivity {
 
                         Log.d("Staff member added to list: ", c.getString("Staff_ID"));
 
-                        String stf = "ID:" + c.optString("Staff_ID") + " - " + c.optString("Forename") + " " + c.optString("Surname");
-
+                        String stf = c.optString("Forename") + " " + c.optString("Surname");
+                        staffSpinnerMap.add(c.optInt("Staff_ID"));
 
                         //staffList.add(Integer.parseInt(stf));
                         staffList.add(stf);
@@ -311,9 +332,15 @@ public class CreateClassActivity extends ActionBarActivity {
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
+            TextView txt = (TextView)pDialog.findViewById(android.R.id.message);
+            Typeface face = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
+            txt.setTypeface(face);
+
         }
 
         protected String doInBackground(String... args) {
+            int class_id = 0;
+
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("Class_Type", typeSpinner.getSelectedItem().toString()));
             params.add(new BasicNameValuePair("Module_Code", module));
@@ -329,11 +356,40 @@ public class CreateClassActivity extends ActionBarActivity {
                 int success = json.getInt(TAG_SUCCESS);
 
                 if (success == 1){
+                    class_id = json.optInt("id");
+                }
+            }
+            catch (JSONException e)
+            {
+                e.printStackTrace();
+            }
+
+            Log.d("CLASSSSSSID: ", class_id + "");
+
+            List<NameValuePair> params2 = new ArrayList<NameValuePair>();
+            params2.add(new BasicNameValuePair("class", Integer.toString(class_id)));
+
+            JSONParser4 parser2 = new JSONParser4();
+
+            JSONObject json2 = parser2.makeHttpRequest(url_class_info, "GET", params2);
+
+            Log.d("Create Response", json2.toString());
+
+            try{
+                int success = json2.getInt(TAG_SUCCESS);
+
+                if (success == 1){
+                    classArray = json2.getJSONArray("class");
+
+                    JSONObject obj = classArray.getJSONObject(0);
+
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     i.putExtra("classVar", 1);
                     i.putExtra("successVar", 0);
                     //Log.d("ID", "///" + json.optInt("id") + "///");
-                    i.putExtra("classid", json.optInt("id"));
+                    i.putExtra("classid", class_id);
+                    i.putExtra("staff", obj.getString("Forename") + " " + obj.optString("Surname"));
+                    i.putExtra("module", obj.optString("Module_Code") + " - " + obj.optString("Module_Name"));
                     startActivity(i);
                     finish();
                 }

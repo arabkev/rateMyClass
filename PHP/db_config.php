@@ -4,8 +4,8 @@
  * All database connection variables
  */
  
-define('DB_USER', "sql363431"); // db user
-define('DB_PASSWORD', "jF8%mF6%"); // db password (mention your db password here)
-define('DB_DATABASE', "sql363431"); // database name
-define('DB_SERVER', "sql3.freemysqlhosting.net"); // db server
+define('DB_USER', "kevinmckenzie"); // db user
+define('DB_PASSWORD', "ClassMyRate1"); // db password (mention your db password here)
+define('DB_DATABASE', "kevinmckenziedb"); // database name
+define('DB_SERVER', "silva.computing.dundee.ac.uk"); // db server
 ?>

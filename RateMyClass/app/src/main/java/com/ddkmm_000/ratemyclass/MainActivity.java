@@ -1,6 +1,9 @@
 package com.ddkmm_000.ratemyclass;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +19,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -41,12 +45,14 @@ public class MainActivity extends ActionBarActivity {
     int successVal = 0;
     int paramVal = 0;
     int classid = 0;
+    String staff = "";
+    String module = "";
 
 
     // url to create new feedback
     //private static String url_create_feedback = "http://ratemyclass.site50.net/create_feedback.php";
-    private static String url_create_feedback = "http://ratemyclass.byethost5.com/create_feedback.php";
-
+    //private static String url_create_feedback = "http://ratemyclass.byethost5.com/create_feedback.php";
+    private static String url_create_feedback = "https://zeno.computing.dundee.ac.uk/2014-projects/kevinmckenzie/create_feedback.php";
 
     // JSON node names
     private static String TAG_SUCCESS = "success";
@@ -58,8 +64,19 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        module = getIntent().getExtras().getString("module");
+        staff = getIntent().getExtras().getString("staff");
+
+        Log.d("Class_ID: ", getIntent().getExtras().getInt("classid") + "");
+        Log.d("Module: ", module);
+        Log.d("Staff: ", staff);
+
+
+        getSupportActionBar().setTitle(module + ", " + staff);
+
         /** Set the green-red colour scheme for the seek bars **/
         final SeekBar mSeekBar = (SeekBar) findViewById(R.id.seekBar);
+        mSeekBar.getThumb().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -79,7 +96,9 @@ public class MainActivity extends ActionBarActivity {
             }
         });
         mSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        mSeekBar.setProgress(45);
         final SeekBar mSeekBar2 = (SeekBar) findViewById(R.id.seekBarInformative);
+        mSeekBar2.getThumb().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
         mSeekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -99,7 +118,9 @@ public class MainActivity extends ActionBarActivity {
             }
         });
         mSeekBar2.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        mSeekBar2.setProgress(45);
         final SeekBar mSeekBar3 = (SeekBar) findViewById(R.id.seekBarInnovative);
+        mSeekBar3.getThumb().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
         mSeekBar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -119,7 +140,9 @@ public class MainActivity extends ActionBarActivity {
             }
         });
         mSeekBar3.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        mSeekBar3.setProgress(45);
         final SeekBar mSeekBar4 = (SeekBar) findViewById(R.id.seekBarIntelligible);
+        mSeekBar4.getThumb().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
         mSeekBar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -139,7 +162,9 @@ public class MainActivity extends ActionBarActivity {
             }
         });
         mSeekBar4.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        mSeekBar4.setProgress(45);
         final SeekBar mSeekBar5 = (SeekBar) findViewById(R.id.seekBarInteractive);
+        mSeekBar5.getThumb().setColorFilter(Color.BLACK, PorterDuff.Mode.MULTIPLY);
         mSeekBar5.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -159,6 +184,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
         mSeekBar5.setProgressDrawable(getResources().getDrawable(R.drawable.seeker));
+        mSeekBar5.setProgress(45);
 
 
         /** Hide the 'Remove Comment' buttons **/
@@ -210,7 +236,7 @@ public class MainActivity extends ActionBarActivity {
 
             // set dialog message
             alertDialogBuilder
-                    .setMessage("Class created successfully")
+                    .setMessage("Module & Lecturer choice accepted!")
                     .setCancelable(false)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -224,6 +250,9 @@ public class MainActivity extends ActionBarActivity {
 
             // show it
             alertDialog.show();
+            TextView txt = (TextView)alertDialog.findViewById(android.R.id.message);
+            Typeface face = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
+            txt.setTypeface(face);
         }
 
         if (getIntent().getExtras().getInt("successVar") == 1){
@@ -261,6 +290,9 @@ public class MainActivity extends ActionBarActivity {
 
             // show it
             alertDialog.show();
+            TextView txt = (TextView)alertDialog.findViewById(android.R.id.message);
+            Typeface face = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
+            txt.setTypeface(face);
         }
         else if (paramVal == 2)
         {
@@ -287,6 +319,9 @@ public class MainActivity extends ActionBarActivity {
 
             // show it
             alertDialog.show();
+            TextView txt = (TextView)alertDialog.findViewById(android.R.id.message);
+            Typeface face = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
+            txt.setTypeface(face);
         }
     }
 
@@ -471,6 +506,9 @@ public class MainActivity extends ActionBarActivity {
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
             pDialog.show();
+            TextView txt = (TextView)pDialog.findViewById(android.R.id.message);
+            Typeface face = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
+            txt.setTypeface(face);
         }
 
         /**
@@ -489,22 +527,22 @@ public class MainActivity extends ActionBarActivity {
 
             seeker = (SeekBar)findViewById(R.id.seekBarInformative);
             spinner = (Spinner)findViewById(R.id.spinnerInformative);
-            int Informative_Rating = seeker.getProgress();;
+            int Informative_Rating = seeker.getProgress();
             String Informative_Comment = spinner.getSelectedItem().toString();
 
             seeker = (SeekBar)findViewById(R.id.seekBarInteractive);
             spinner = (Spinner)findViewById(R.id.spinnerInteractive);
-            int Interactive_Rating = seeker.getProgress();;
+            int Interactive_Rating = seeker.getProgress();
             String Interactive_Comment = spinner.getSelectedItem().toString();
 
             seeker = (SeekBar)findViewById(R.id.seekBarIntelligible);
             spinner = (Spinner)findViewById(R.id.spinnerIntelligible);
-            int Intelligible_Rating = seeker.getProgress();;
+            int Intelligible_Rating = seeker.getProgress();
             String Intelligible_Comment = spinner.getSelectedItem().toString();
 
             seeker = (SeekBar)findViewById(R.id.seekBarInnovative);
             spinner = (Spinner)findViewById(R.id.spinnerInnovative);
-            int Innovative_Rating = seeker.getProgress();;
+            int Innovative_Rating = seeker.getProgress();
             String Innovative_Comment = spinner.getSelectedItem().toString();
 
 
@@ -550,6 +588,8 @@ public class MainActivity extends ActionBarActivity {
                     i.putExtra("successVar", 1);
                     i.putExtra("classid", classid);
                     i.putExtra("classVar", 3);
+                    i.putExtra("module", module);
+                    i.putExtra("staff", staff);
                     startActivity(i);
 
                     // closing this screen
@@ -560,6 +600,8 @@ public class MainActivity extends ActionBarActivity {
                     i.putExtra("successVar", 2);
                     i.putExtra("classid", classid);
                     i.putExtra("classVar", 3);
+                    i.putExtra("module", module);
+                    i.putExtra("staff", staff);
                     startActivity(i);
 
                     // closing this screen

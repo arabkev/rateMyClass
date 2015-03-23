@@ -14,7 +14,6 @@ if (isset($_POST['Class_Type']) && isset($_POST['Module_Code']) && isset($_POST[
     $type = $_POST['Class_Type'];
     $module = $_POST['Module_Code'];
     $staff = $_POST['Staff_ID'];
-	$datetime = $_POST['DateTime'];
  
     // include db connect class
     require_once __DIR__ . '/db_connect.php';
