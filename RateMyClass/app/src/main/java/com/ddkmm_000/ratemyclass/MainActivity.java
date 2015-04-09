@@ -22,11 +22,20 @@ import android.content.DialogInterface;
 import android.widget.TextView;
 
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpClientConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -201,30 +210,35 @@ public class MainActivity extends ActionBarActivity {
 
         /** Populate the spinners with the pre-defined comments **/
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values_interesting, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.INVISIBLE);
+        spinner.setSelection(2);
         spinner = (Spinner)findViewById(R.id.spinnerInformative);
-        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values_informative, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.INVISIBLE);
+        spinner.setSelection(2);
         spinner = (Spinner)findViewById(R.id.spinnerInnovative);
-        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values_innovative, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.INVISIBLE);
+        spinner.setSelection(2);
         spinner = (Spinner)findViewById(R.id.spinnerIntelligible);
-        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values_intelligible, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.INVISIBLE);
+        spinner.setSelection(2);
         spinner = (Spinner)findViewById(R.id.spinnerInteractive);
-        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values, R.layout.spinner_item);
+        adapter = ArrayAdapter.createFromResource(this, R.array.spinner_values_interactive, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.INVISIBLE);
+        spinner.setSelection(2);
 
         if (getIntent().getExtras().getInt("classVar") == 1){
             final AlertDialog alertDialog;
@@ -342,10 +356,14 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_exit) {
+            new SendEmail().execute();
+
             finish();
             return true;
         }
         if (id == R.id.action_newclass){
+            new SendEmail().execute();
+
             startActivity(new Intent(getApplicationContext(), CreateClassActivity.class));
             finish();
             return true;
@@ -627,6 +645,33 @@ public class MainActivity extends ActionBarActivity {
             pDialog.dismiss();
         }
 
+    }
+
+    class SendEmail extends AsyncTask<String, String, String> {
+
+        private Exception exception;
+
+        protected String doInBackground(String... args) {
+            String postUrl = "https://zeno.computing.dundee.ac.uk/2014-projects/kevinmckenzie/send_email.php";
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost(postUrl);
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            nameValuePairs.add(new BasicNameValuePair("Class_ID", Integer.toString(classid)));
+            nameValuePairs.add(new BasicNameValuePair("Email", "kmalba@live.co.uk"));
+            try {
+                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            }catch (UnsupportedEncodingException e){}
+            try {
+                HttpResponse response = httpClient.execute(httpPost);
+                Log.d("RESPONSE", response.toString());
+            }catch(IOException i){}
+            return null;
+        }
+
+        protected void onPostExecute(String file_url) {
+            // TODO: check this.exception
+            // TODO: do something with the feed
+        }
     }
 
 }

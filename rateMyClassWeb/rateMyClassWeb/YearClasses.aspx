@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sd.aspx.cs" Inherits="rateMyClassWeb.YearClasses" MasterPageFile="~/Master.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="Server">
+    <a href="Login.aspx"><- Back</a>
+
     <form runat="server">
         <div>
             <h1>Classes by Year</h1>

@@ -1,10 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="rateMyClassWeb.Login" MasterPageFile="~/Master.master" %>
 
 <asp:content id="Content1" contentplaceholderid="Main" runat="Server">
+    <a href="default.aspx"><- Log Out</a>
     <div>
         <h1>Welcome, 
         <asp:Label ID="userLabel" runat="server" Text=", you are not logged in" />
         !</h1>
+        <br />
+        <asp:HyperLink NavigateUrl="~/ChangePassword.aspx" runat="server">Change Password</asp:HyperLink>
         <br />
         <asp:HyperLink NavigateUrl="~/MyClasses.aspx" ID="myClassesLink" runat="server">My Classes</asp:HyperLink>
         <br />

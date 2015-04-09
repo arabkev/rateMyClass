@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace rateMyClassWeb
 {
@@ -17,6 +18,8 @@ namespace rateMyClassWeb
             }
             else
             {
+                //((HtmlGenericControl)this.Page.Master.FindControl("centerColumn")).Style.Add("height", "720px");
+
                 int classid = (int)Session["class"];
                 MySql.Data.MySqlClient.MySqlConnection conn;
                 MySql.Data.MySqlClient.MySqlCommand cmd;
@@ -55,6 +58,17 @@ namespace rateMyClassWeb
                 {
                     Response.Write("Could not connect to database");
                 }
+
+                if (NoFeedbacks.Text == "0")
+                {
+                    chart_div.Visible = false;
+                    interesting_chart.Visible = false;
+                    informative_chart.Visible = false;
+                    interactive_chart.Visible = false;
+                    intelligible_chart.Visible = false;
+                    innovative_chart.Visible = false;
+                }
+
                 /*try
                 {
                     conn.Open();

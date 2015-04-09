@@ -58,11 +58,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChangePassword.aspx" />
     <Content Include="ClassFeedbacks.aspx" />
+    <Content Include="cooltext116141583962224.png" />
+    <Content Include="cooltext116141583962224MouseOver.png" />
+    <Content Include="cooltext116142327976605.png" />
+    <Content Include="cooltext116142327976605MouseOver.png" />
+    <Content Include="cooltext116143387916064.png" />
+    <Content Include="cooltext116143387916064MouseOver.png" />
+    <Content Include="cooltext116476408410091.png" />
+    <Content Include="cooltext116476408410091MouseOver.png" />
     <Content Include="Default.aspx" />
     <Content Include="EditModules.aspx" />
     <Content Include="EditStaff.aspx" />
     <Content Include="EditTeachings.aspx" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="StaffClasses.aspx" />
     <Content Include="YearClasses.aspx" />
@@ -74,6 +84,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClassFeedbacks.aspx.cs">
       <DependentUpon>ClassFeedbacks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -108,6 +125,13 @@
     </Compile>
     <Compile Include="EditTeachings.aspx.designer.cs">
       <DependentUpon>EditTeachings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

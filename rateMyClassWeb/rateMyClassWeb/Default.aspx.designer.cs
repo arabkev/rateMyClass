@@ -49,6 +49,15 @@ namespace rateMyClassWeb {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl passwordMsg;
         
         /// <summary>
+        /// login_Button control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton login_Button;
+        
+        /// <summary>
         /// loginButton control.
         /// </summary>
         /// <remarks>

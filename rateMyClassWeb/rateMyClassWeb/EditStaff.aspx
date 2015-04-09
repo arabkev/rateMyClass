@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditStaff.aspx.cs" Inherits="rateMyClassWeb.EditStaff" MasterPageFile="~/Master.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="Server">
+    <a href="Login.aspx"><- Back</a>
     <div>
         <h1>Edit Staff</h1>
     </div>

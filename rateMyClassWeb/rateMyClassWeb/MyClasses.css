@@ -8,6 +8,7 @@ body {
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 1em;
     text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+    height: 100%;
 }
 
 h1 {
@@ -47,6 +48,7 @@ blockquote {
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,#CCCCCC),color-stop(50%,#EEEEEE), color-stop(50%,#EEEEEE), color-stop(100%,#CCCCCC));
     overflow: auto;
 }
+
 
 html > body #centerColumn {
     margin-left: 6em;
@@ -255,6 +257,10 @@ a:hover {
     float: left;
     position: relative;
     border-left: 1px solid #a0a0a0;
+    left: -2px;
+    height: 900px;
+    margin-top: 50px;
+    margin-left: 20px;
 }
 
 .comments {
@@ -265,10 +271,12 @@ a:hover {
 }
 
 .pie {
-    width: 0%;
-    bottom: 0px;
+    width: auto;
+    float: left;
+    position: relative;
     border-left: 1px solid #a0a0a0;
-    height: 43px;
+    left: -2px;
+    margin-left: 20px;
 }
 
 .CSSTableGenerator {

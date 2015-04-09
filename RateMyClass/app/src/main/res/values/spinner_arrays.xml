@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinner_values">
-        <item>No comment</item>
+    <string-array name="spinner_values_interesting">
         <item>Delivery was monotone</item>
         <item>Lecturer did not seem interested</item>
-        <item>PLACEHOLDER</item>
-        <item>PLACEHOLDER</item>
-        <item>PLACEHOLDER</item>
-        <item>PLACEHOLDER</item>
-        <item>PLACEHOLDER</item>
-        <item>PLACEHOLDER</item>
-        <item>PLACEHOLDER</item>
-        <item>PLACEHOLDER</item>
+        <item>No comment</item>
+        <item>Lecturer was enthusiastic</item>
+        <item>Delivery was lively</item>
+    </string-array>
+    <string-array name="spinner_values_informative">
+        <item>No new information given</item>
+        <item>Lack of information</item>
+        <item>No comment</item>
+        <item>Lots of information given</item>
+        <item>Provided with new information</item>
+    </string-array>
+    <string-array name="spinner_values_interactive">
+        <item>Lecturer never asked questions</item>
+        <item>No student input</item>
+        <item>No comment</item>
+        <item>Student input was regular and encouraged</item>
+        <item>Lecturer asked questions</item>
+    </string-array>
+    <string-array name="spinner_values_intelligible">
+        <item>Lecturer had a voice/accent that could not be understood</item>
+        <item>Information given was vague and unclear</item>
+        <item>No comment</item>
+        <item>Information was given in a clear way</item>
+        <item>Lecturer spoke clearly</item>
+    </string-array>
+    <string-array name="spinner_values_innovative">
+        <item>Class felt like going through the motions</item>
+        <item>Lecturer stuck to slides</item>
+        <item>No comment</item>
+        <item>Lecturer tried new, different teaching techniques</item>
+        <item>Class felt fresh and exciting</item>
     </string-array>
     <string-array name="class_types">
         <item>Lecture</item>

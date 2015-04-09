@@ -13,12 +13,20 @@ namespace rateMyClassWeb
         MySql.Data.MySqlClient.MySqlCommand cmd;
         MySql.Data.MySqlClient.MySqlDataReader reader;
         String queryStr;
-        String name, role, email;
+        String name, role, email, pword;
         int id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            login_Button.Attributes.Add("onmouseover", "src='cooltext116142327976605MouseOver.png'");
+            login_Button.Attributes.Add("onmouseout", "src='cooltext116142327976605.png'");
+            if (Request.UrlReferrer != null)
+            {
+                if (Request.UrlReferrer.ToString() == "http://localhost:14521/Login.aspx")
+                {
+                    Session.Abandon();
+                }
+            }
         }
 
         protected void loginButton_Click(object sender, EventArgs e)
@@ -42,6 +50,7 @@ namespace rateMyClassWeb
                     role = reader.GetString("Role");
                     email = reader.GetString("Email_Address");
                     id = reader.GetInt32("Staff_ID");
+                    pword = reader.GetString("Password");
                 }
 
                 if (reader.HasRows)
@@ -50,6 +59,7 @@ namespace rateMyClassWeb
                     Session["role"] = role;
                     Session["email"] = email;
                     Session["id"] = id;
+                    Session["password"] = pword;
                     Response.BufferOutput = true;
                     Response.Redirect("Login.aspx", false);
                 }
@@ -67,5 +77,6 @@ namespace rateMyClassWeb
                 Response.Write("Could not connect to database");
             }
         }
+
     }
 }

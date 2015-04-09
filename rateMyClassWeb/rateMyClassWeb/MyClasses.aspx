@@ -1,6 +1,64 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyClasses.aspx.cs" Inherits="rateMyClassWeb.MyClasses" MasterPageFile="~/Master.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="Server">
+    <a href="Login.aspx"><- Back</a>
+
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.setOnLoadCallback(drawItems);
+
+        var staffid = '<%=Session["id"]%>';
+
+        function drawItems(json) {
+            
+            // Create our data table out of JSON data loaded from server.
+            var piechartdata = new google.visualization.DataTable(json);
+
+            // Instantiate and draw our pie chart, passing in some options.
+            var chart = new google.visualization.ColumnChart(document.getElementById('Main_chart_div'));
+            chart.draw(piechartdata, {
+                width: 1000,
+                height: 563,
+                title: 'Overall Staff Feedback',
+                legend: 'none',
+                backgroundColor: 'transparent',
+                hAxis: {
+                    title: 'Category'
+                },
+                vAxis: {
+                    title: 'Score',
+                    viewWindow: {
+                        min: 0,
+                        max: 100
+                    }
+                },
+                is3D: true
+            });
+        }
+
+        function loadData() {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 && request.status == 200) {
+                    drawItems(request.responseText);
+                }
+            }
+            var url = "https://zeno.computing.dundee.ac.uk/2014-projects/kevinmckenzie/get_staff_feedback.php?staff_id=" + staffid;
+            request.open("GET", url, true);
+            request.send();
+        }
+
+        // Load the Visualization API and the piechart,table package.
+        google.load('visualization', '1', { 'packages': ['corechart'], callback: loadData });
+
+    </script>
+
     <form runat="server">
         <div>
             <h1>My Classes</h1>
@@ -61,4 +119,5 @@
             </asp:ListView>
         </div>
     </form>
+    <div runat="server" id="chart_div" class="=chart"/>
 </asp:Content>

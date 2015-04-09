@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditModules.aspx.cs" Inherits="rateMyClassWeb.EditModules" MasterPageFile="~/Master.master" %>
 
 <asp:content id="Content1" contentplaceholderid="Main" runat="Server">
+    <a href="Login.aspx"><- Back</a>
     <div>
         <h1>Edit Modules</h1>
     </div>

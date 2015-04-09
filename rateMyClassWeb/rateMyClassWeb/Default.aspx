@@ -13,8 +13,9 @@
         <asp:TextBox ID="passwordTextBox" runat="server" TextMode="Password" class="login_password" />
         <p id="passwordMsg" runat="server"></p>
         <br />
-        <asp:Button ID="loginButton" text="Log In" runat="server" OnClick="loginButton_Click" class="login_button"/>
-
+        <asp:ImageButton ID="login_Button" OnClick="loginButton_Click" runat="server" ImageUrl="~/cooltext116142327976605.png" />
+        <!--<asp:Button ID="loginButton" text="Log In" runat="server" OnClick="loginButton_Click" class="login_button" />-->
+        
     </div>
     </form>
 </asp:content>
